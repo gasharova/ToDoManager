@@ -6,9 +6,8 @@ using System.Web;
 
 namespace ToDoManager.Entities
 {
-    public class SharedToDoList
+    public class SharedToDoList : BaseEntity
     {
-        public int Id { get; set; }
         public int SharedListId { get; set; }
         public int UserId { get; set; }
 

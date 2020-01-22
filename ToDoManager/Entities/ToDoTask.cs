@@ -6,9 +6,8 @@ using System.Web;
 
 namespace ToDoManager.Entities
 {
-    public class ToDoTask
+    public class ToDoTask : BaseEntity
     {
-        public int Id { get; set; }
         public int ParentListId { get; set; }
         public string Description { get; set; }
         public bool IsDone { get; set; }

@@ -17,15 +17,14 @@ namespace ToDoManager.Controllers
     {
         public ActionResult Index()
         {
-            User loggedUser = (User)Session["loggedUser"];
-
             IndexVM model = new IndexVM();
 
             ToDoDbContext context = new ToDoDbContext();
+
+            User loggedUser = (User)Session["loggedUser"];
             model.Items = context.ToDoLists
                                     .Where(i => i.OwnerId == loggedUser.Id)
                                     .ToList();
-
             model.Items.AddRange(
                 context.SharedToDoLists
                             .Where(i => i.UserId == loggedUser.Id)

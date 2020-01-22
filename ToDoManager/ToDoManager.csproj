@@ -111,10 +111,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BaseCrudController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ToDoListsController.cs" />
     <Compile Include="Controllers\ToDoTasksController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Entities\SharedToDoList.cs" />
     <Compile Include="Entities\ToDoList.cs" />
     <Compile Include="Entities\ToDoTask.cs" />
@@ -145,9 +147,15 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\SharedToDoListsRepository.cs" />
     <Compile Include="Repositories\ToDoDbContext.cs" />
+    <Compile Include="Repositories\ToDoListsRepository.cs" />
+    <Compile Include="Repositories\ToDoTasksRepository.cs" />
+    <Compile Include="Repositories\UsersRepository.cs" />
     <Compile Include="ViewModels\Home\IndexVM.cs" />
     <Compile Include="ViewModels\Home\LoginVM.cs" />
+    <Compile Include="ViewModels\Shared\BaseIndexVM.cs" />
     <Compile Include="ViewModels\ToDoLists\CreateVM.cs" />
     <Compile Include="ViewModels\ToDoLists\EditVM.cs" />
     <Compile Include="ViewModels\ToDoLists\IndexVM.cs" />
@@ -166,7 +174,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Users\Create.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\ToDoLists\Index.cshtml" />
     <Content Include="Views\ToDoLists\Create.cshtml" />
