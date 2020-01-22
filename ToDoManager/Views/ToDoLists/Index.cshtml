@@ -1,0 +1,28 @@
+﻿@model ToDoManager.ViewModels.ToDoLists.IndexVM
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/SiteMaster.cshtml";
+}
+
+<a href="/ToDoLists/Create">New</a>
+<div class="grid">
+    <div class="grid-row bold">
+        <div class="grid-column">Title</div>
+        <div class="grid-column-triple">Description</div>
+        <div class="grid-column"></div>
+    </div>
+    @foreach (var item in Model.Items)
+    {
+        <div class="grid-row">
+            <div class="grid-column">@item.Title</div>
+            <div class="grid-column-triple">@item.Description</div>
+            <div class="grid-column">
+                <a href="/ToDoLists/Share?id=@item.Id">share</a>
+                <a href="/ToDoTasks/Index?id=@item.Id">details</a>
+                <a href="/ToDoLists/Edit?id=@item.Id">edit</a>
+                <a href="/ToDoLists/Delete?id=@item.Id" onclick="return confirm('Delete item?')">delete</a>
+            </div>
+        </div>
+    }
+</div>

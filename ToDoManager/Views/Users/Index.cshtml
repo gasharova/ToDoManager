@@ -1,0 +1,28 @@
+﻿@model ToDoManager.ViewModels.Users.IndexVM
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/SiteMaster.cshtml";
+}
+
+<a href="/Users/Create">New</a>
+<div class="grid">
+    <div class="grid-row bold">
+        <div class="grid-column">Username</div>
+        <div class="grid-column">First Name</div>
+        <div class="grid-column">Last Name</div>
+        <div class="grid-column"></div>
+    </div>
+@foreach(var item in Model.Items)
+{
+    <div class="grid-row">
+        <div class="grid-column">@item.Username</div>
+        <div class="grid-column">@item.FirstName</div>
+        <div class="grid-column">@item.LastName</div>
+        <div class="grid-column">
+            <a href="/Users/Edit?id=@item.Id">edit</a>
+            <a href="/Users/Delete?id=@item.Id" onclick="return confirm('Delete item?')">delete</a>
+        </div>
+    </div>
+}
+</div>

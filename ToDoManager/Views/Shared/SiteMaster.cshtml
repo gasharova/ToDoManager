@@ -1,0 +1,51 @@
+﻿@using ToDoManager.Entities;
+@{ 
+    User loggedUser = Session["loggedUser"] != null
+                            ? (User)Session["loggedUser"]
+                            : null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/site.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="main-header">
+            <div class="title">
+                <h1>EASY TO DO</h1>
+                <h2>THE EASY WAY TO MANAGE YOUR TO DO LISTS</h2>
+            </div>
+            <div class="login">
+                <span>Hello, @(loggedUser == null ? "Annonymous" : loggedUser.Username)</span>
+                @if (loggedUser == null)
+                {<a href="/Home/Login">sign-in</a> }
+                else
+                { <a href="/Home/Logout">logout</a>}
+            </div>
+        </div>
+        <div class="main-menu">
+            <ul>
+                <li>
+                    <a href="/Home/Index">Home</a>
+                </li>
+                <li>
+                    <a href="/Users/Index">Users</a>
+                </li>
+                <li>
+                    <a href="/ToDoLists/Index">My Lists</a>
+                </li>
+                <li>
+                    <a href="#">My Shares</a>
+                </li>
+            </ul>
+        </div>
+        <div class="main-body">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

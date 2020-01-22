@@ -1,0 +1,37 @@
+﻿@model ToDoManager.ViewModels.ToDoTasks.IndexVM
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/SiteMaster.cshtml";
+}
+
+<fieldset>
+    <legend class="bold" style="font-size:24px;">@Model.List.Title</legend>
+    <span class="bold">Description: </span>
+    <p>@Model.List.Description</p>
+
+    <a href="/ToDoTasks/Create?id=@Model.List.Id">New</a>
+    <div class="grid">
+        <div class="grid-row bold">
+            <div class="grid-column-triple">Description</div>
+            <div class="grid-column"></div>
+            <div class="grid-column"></div>
+        </div>
+        @foreach (var item in Model.Items)
+        {
+        <div class="grid-row">
+            <div class="grid-column-triple @(item.IsDone ? "done" : "")">@item.Description</div>
+            <div class="grid-column">
+                @if (!item.IsDone)
+                { <a href="/ToDoTasks/Complete?id=@item.Id">done</a> }
+                else
+                { <a href="/ToDoTasks/Reopen?id=@item.Id">reopen</a> }
+            </div>
+            <div class="grid-column">
+                <a href="/ToDoTasks/Edit?id=@item.Id">edit</a>
+                <a href="/ToDoTasks/Delete?id=@item.Id" onclick="return confirm('Delete item?')">delete</a>
+            </div>
+        </div>
+        }
+    </div>
+</fieldset>

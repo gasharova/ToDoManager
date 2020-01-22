@@ -1,0 +1,42 @@
+﻿@model ToDoManager.ViewModels.ToDoLists.ShareVM
+
+@{
+    ViewBag.Title = "Share";
+    Layout = "~/Views/Shared/SiteMaster.cshtml";
+}
+<fieldset>
+    <legend class="bold" style="font-size:24px;">@Model.List.Title</legend>
+    <span class="bold">Description: </span>
+    <p>@Model.List.Description</p>
+
+    <span class="bold">Shared with: </span>
+    @foreach(var share in Model.Shares)
+    {
+        <p>@share.User.Username (@share.User.FirstName @share.User.LastName)</p>
+    }
+
+    <form action="/ToDoLists/Share" method="post">
+        <input type="hidden" name="ListId" value="@Model.List.Id" />
+        <div class="grid">
+            <div class="grid-row">
+                <div class="grid-column">
+                    @Html.LabelFor(m => m.UserId)
+                </div>
+                <div class="grid-column-triple">
+                    <select name="UserId">
+                        @foreach (var item in Model.Users)
+                        {
+                            <option value="@item.Id">@item.Username</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="grid-row">
+                <div class="grid-column">
+                    <input type="submit" value="Share" />
+                    <a href="/ToDoLists/Index">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</fieldset>

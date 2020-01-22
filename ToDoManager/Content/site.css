@@ -1,0 +1,72 @@
+﻿.bold {
+    font-weight:bold;
+}
+
+.main-container {
+    width:100%;
+}
+
+.main-header {
+    width:100%;
+}
+
+.main-container .title {
+    width:600px;
+    float: left;
+}
+
+.main-container .login {
+    float: right;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+.main-header div h1 {
+    font-size: 36px;
+    margin: 10px;
+}
+
+.main-header div h2 {
+    font-size: 16px;
+    margin: 10px;
+}
+
+.main-menu {
+    clear:both;
+}
+
+.main-menu ul li {
+    width:30px;
+    display: inline;
+    margin: 0px 20px;
+}
+
+.main-menu ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
+}
+
+.main-body {
+    clear: both;
+}
+
+.grid {
+
+}
+
+.grid .grid-row {
+}
+
+.grid-row .grid-column {
+    display: inline-block;
+    width: 150px;
+}
+
+.grid-row .grid-column-triple {
+    display: inline-block;
+    width: 450px;
+}

@@ -1,0 +1,39 @@
+﻿@model ToDoManager.ViewModels.ToDoTasks.EditVM
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/SiteMaster.cshtml";
+}
+
+<form action="/ToDoTasks/Edit" method="post">
+    @Html.HiddenFor(m => m.Id)
+    <div class="grid">
+        @Html.HiddenFor(m => m.ParentListId)
+        <div class="grid-row">
+            <div class="grid-column">
+                @Html.LabelFor(m => m.Description)
+            </div>
+            <div class="grid-column-triple">
+                @Html.TextAreaFor(m => m.Description)
+                @Html.ValidationMessageFor(m => m.Description, null, new { style = "color: red;" })
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="grid-column">
+                @Html.LabelFor(m => m.IsDone)
+            </div>
+            <div class="grid-column">
+                @Html.CheckBoxFor(m => m.IsDone)
+                @Html.ValidationMessageFor(m => m.IsDone, null, new { style = "color: red;" })
+            </div>
+        </div>
+        <div class="grid-row">
+            <div class="grid-column">
+                <input type="submit" value="Save" />
+                <a href="/ToDoTasks/Index?id=@Model.ParentListId">Cancel</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+
